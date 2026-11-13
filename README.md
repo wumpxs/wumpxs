@@ -1,16 +1,18 @@
-## Hi there 👋
+# Hi, I'm Wumpxs 👋
 
-<!--
-**wumpxs/wumpxs** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my GitHub profile! I'm exploring, building, and sharing projects here.
 
-Here are some ideas to get you started:
+## About me
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 🔭 I’m currently working on **something new**
+- 🌱 I’m currently learning **new things every day**
+- 💬 Ask me about **my projects and interests**
+- ⚡ Fun fact: **I like discovering how things work**
+
+## Find me around the web
+
+- GitHub: [@Wumpxs](https://github.com/Wumpxs)
+
+---
+
+*This profile is a starting point—replace the bold placeholders with details you want to share.*
