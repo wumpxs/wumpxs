@@ -1,18 +1,18 @@
-# Hi, I'm Wumpxs 👋
+# Hoi, ik ben Wumpxs 👋
 
-Welcome to my GitHub profile! I'm exploring, building, and sharing projects here.
+Welkom op mijn GitHub-profiel! Hier ontdek, bouw en deel ik projecten.
 
-## About me
+## Over mij
 
-- 🔭 I’m currently working on **something new**
-- 🌱 I’m currently learning **new things every day**
-- 💬 Ask me about **my projects and interests**
-- ⚡ Fun fact: **I like discovering how things work**
+- 🔭 Ik werk momenteel aan **iets nieuws**
+- 🌱 Ik leer **elke dag nieuwe dingen**
+- 💬 Vraag me gerust naar **mijn projecten en interesses**
+- ⚡ Leuk weetje: **ik ontdek graag hoe dingen werken**
 
-## Find me around the web
+## Je vindt me ook hier
 
 - GitHub: [@Wumpxs](https://github.com/Wumpxs)
 
 ---
 
-*This profile is a starting point—replace the bold placeholders with details you want to share.*
+*Dit profiel is een beginpunt. Vervang de vetgedrukte teksten door dingen die je wilt delen.*
