@@ -46,6 +46,144 @@ Ik ben een eerstejaarsstudent **Software Development** aan het **ROC Hilversum**
 
 <div align="center">
 
+## 🧭 Hoe ik werk & waar ik op focus
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3 align="center">🎮 FiveM & Server Logic</h3>
+      <ul>
+        <li>Modulaire resource-structuur in <b>Lua 5.4</b></li>
+        <li>Strakke <b>resmon</b> (0.00ms idle) & server-side validatie</li>
+        <li>Custom <b>NUI</b> interfaces met HTML, CSS & JS</li>
+        <li>Event-driven architectuur & anti-exploit checks</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3 align="center">🌐 Full-Stack Web Apps</h3>
+      <ul>
+        <li>Component-based UI's bouwen in <b>Vue 3</b> & <b>Tailwind</b></li>
+        <li>Authenticatie, PostgreSQL & Realtime via <b>Supabase</b></li>
+        <li>Clean database-schema's & herbruikbare composables</li>
+        <li>Responsive design van schets in <b>Figma</b> tot live deploy</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+## ⚡ Onder de motorkap (Code Snippets)
+
+*Klik open om te zien hoe ik zowel FiveM resources als moderne webapps opbouw:*
+
+</div>
+
+<details open>
+  <summary><b>🎮 FiveM Resource Runtime — <code>wumpxs_core/server/main.lua</code></b></summary>
+
+```lua
+local Developer = {}
+Developer.__index = Developer
+
+local STACK <const> = {
+    lua      = { version = "5.4", role = "FiveM Server/Client & NUI" },
+    vue      = { version = "3.x", role = "Reactive Frontend" },
+    supabase = { role = "Postgres / Auth / Realtime" },
+    web      = { "HTML5", "CSS3", "Tailwind", "PHP", "MySQL" }
+}
+
+function Developer.new(profile)
+    return setmetatable({
+        user       = profile.user or "Wumpxs",
+        school     = "ROC Hilversum — Software Dev (Y1)",
+        mood       = profile.mood or "locking_in",
+        bugsSolved = 0,
+        stack      = STACK
+    }, Developer)
+end
+
+local function ship(task)
+    if task.broken then
+        error(("Bug caught in [%s]: %s"):format(task.module, task.reason), 0)
+    end
+    task.deployed = true
+    return ("SHIPPED :: %s -> production"):format(task.module)
+end
+
+function Developer:runPipeline(tasks)
+    for _, task in ipairs(tasks) do
+        local ok, result = xpcall(ship, debug.traceback, task)
+        while not ok do
+            self.bugsSolved = self.bugsSolved + 1
+            task.broken = false
+            ok, result = xpcall(ship, debug.traceback, task)
+        end
+        print(result)
+    end
+    return ("Done. Bugs squashed: %d"):format(self.bugsSolved)
+end
+
+CreateThread(function()
+    local wumpxs = Developer.new({ user = "Wumpxs", mood = "building" })
+    local output = wumpxs:runPipeline({
+        { module = "fivem-garage-nui",  broken = true,  reason = "NUI focus stuck" },
+        { module = "vue-supabase-shop", broken = false, reason = nil }
+    })
+    TriggerEvent("wumpxs:status", output)
+end)
+```
+
+</details>
+
+<details>
+  <summary><b>🛒 Webshop Composable — <code>useProducts.js</code> (Vue 3 + Supabase)</b></summary>
+
+```javascript
+import { ref, computed } from 'vue'
+import { supabase } from '@/lib/supabase'
+
+export function useProducts() {
+  const products = ref([])
+  const loading = ref(false)
+  const error = ref(null)
+
+  const inStockProducts = computed(() =>
+    products.value.filter((item) => item.stock > 0)
+  )
+
+  async function fetchCatalog(category = null) {
+    loading.value = true
+    error.value = null
+
+    let query = supabase
+      .from('products')
+      .select('id, name, price, stock, category, image_url')
+      .order('created_at', { ascending: false })
+
+    if (category) query = query.eq('category', category)
+
+    const { data, error: sbError } = await query
+    if (sbError) error.value = sbError.message
+    else products.value = data ?? []
+
+    loading.value = false
+  }
+
+  return { products, inStockProducts, loading, error, fetchCatalog }
+}
+```
+
+</details>
+
+---
+
+<div align="center">
+
 ## 🛠️ Tech Stack & Tools
 
 ### 💻 Talen & Frameworks die ik beheers
@@ -55,7 +193,7 @@ Ik ben een eerstejaarsstudent **Software Development** aan het **ROC Hilversum**
 
 ### 📚 Waar ik nu mee bezig ben
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=vue,supabase" />
+  <img src="https://skillicons.dev/icons?i=vue,supabase,js" />
 </a>
 
 ### ⚙️ Tools & Software die ik gebruik
@@ -77,6 +215,15 @@ Ik ben een eerstejaarsstudent **Software Development** aan het **ROC Hilversum**
 | 🎮 **FiveM Scripts** | Custom server- en client-side scripts, NUI interfaces en game mechanics. | `Lua 5.4` `HTML/CSS` `FiveM` | ✅ Actief |
 | 🌐 **Web Development** | Snelle, responsive websites en back-end opdrachten voor school. | `HTML` `CSS` `PHP` `Tailwind` | ✅ Actief |
 | 🧪 **Sandbox & Experimenten** | Kleine testprojecten om nieuwe packages, databases en designs uit te proberen. | `Vue` `Supabase` `Git` | 🔄 Doorlopend |
+
+<br>
+
+### 📌 Uitgelichte Repositories
+> 💡 *Vervang `Wumpxs` bij `repo=` door de naam van je eigen repo zodra je projecten openbaar staan.*
+
+<a href="https://github.com/Wumpxs">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Wumpxs&repo=Wumpxs&theme=tokyonight&hide_border=true" />
+</a>
 
 </div>
 
@@ -130,4 +277,21 @@ Ik ben een eerstejaarsstudent **Software Development** aan het **ROC Hilversum**
 
 ## 💭 Random Dev Quote
 
-<img src="
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote" />
+
+<br><br>
+
+## 📫 Contact & Connect
+
+<p>
+  <a href="https://github.com/Wumpxs">
+    <img src="https://img.shields.io/badge/GitHub-Wumpxs-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://discord.com">
+    <img src="https://img.shields.io/badge/Discord-Wumpxs-5865F2?style=for-the-badge&logo=discord&logoColor=white" />
+  </a>
+</p>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,100:7aa2f7&height=100&section=footer" />
+
+</div>
